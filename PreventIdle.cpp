@@ -15,6 +15,7 @@ int main()
 		keybd_event(VK_F24,0,0,0);
 		Sleep(100);
 	}
+
 	printf("\nDone.\n");
 	return 0;
 }
