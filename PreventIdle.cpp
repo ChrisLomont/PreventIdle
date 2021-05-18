@@ -7,9 +7,10 @@
 
 int main()
 {
-	printf("Prevent windows locking (via F24 key presses). Press q to quit.  ");
+	printf("Prevent windows locking (via F24 key presses). Hold down keys 'quit' at once to quit (from any location!).  ");
 	auto pass = 0;
-	while (!GetKeyState(0x51)) // check for Q
+	// check for Q, U, I, T
+	while (!GetKeyState(0x51) || !GetKeyState(0x55) || !GetKeyState(0x49) || !GetKeyState(0x54))
 	{
 		printf("%c\b","/-\\|"[(pass++)&3]);
 		keybd_event(VK_F24,0,0,0);
