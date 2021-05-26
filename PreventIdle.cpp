@@ -13,7 +13,8 @@ int main()
 	while (!GetKeyState(0x51) || !GetKeyState(0x55) || !GetKeyState(0x49) || !GetKeyState(0x54))
 	{
 		printf("%c\b","/-\\|"[(pass++)&3]);
-		keybd_event(VK_F24,0,0,0);
+		if ((pass % 300) == 0) // once per 30 secs
+			keybd_event(VK_F24, 0, 0, 0);
 		Sleep(100);
 	}
 
